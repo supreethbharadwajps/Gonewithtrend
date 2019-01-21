@@ -9,7 +9,11 @@ const app = express()
 app.use(morgan('combined'))
 app.use(bodyParser.json())
 app.use(cors())
-
+app.post('/register', (req, res) => {
+  res.send({
+    message: `hey ${req.body.email}! you have been registered!`
+  })
+})
 app.get('/status', (req, res) => {
   res.send({
     message: 'hello world'
